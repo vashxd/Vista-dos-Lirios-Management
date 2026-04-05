@@ -1,0 +1,628 @@
+VISTA DOS LÍRIOS
+MANAGEMENT
+Documento de Requisitos e Especificações do Sistema
+Sistema de Gestão Condominial
+Versão 1.0
+Abril de 2026
+Classificado: Confidencial
+1. Introdução
+1.1 Visão Geral do Projeto
+O Vista dos Lírios Management é uma plataforma web moderna e completa para gestão condominial, projetada para digitalizar e otimizar todos os processos administrativos, financeiros e de comunicação entre síndicos, condôminos e administradores. A solução busca substituir processos manuais e descentralizados por um ecossistema digital integrado, promovendo transparência, agilidade e engajamento entre todos os moradores.
+1.2 Objetivos do Sistema
+Centralizar a comunicação entre síndico, condôminos e administração em um único ambiente digital
+Automatizar processos de reserva de áreas de lazer, agendamento de reuniões e gestão de chamados
+Garantir transparência financeira com módulo de tesouraria completo
+Facilitar a tomada de decisões coletivas por meio de enquetes e votações
+Oferecer uma experiência de usuário moderna, responsiva e acessível
+Manter registro histórico de todas as atividades e documentos do condomínio
+1.3 Escopo
+O sistema abrange: gestão de usuários e permissões, mural de avisos, sistema de chamados, agenda condominial, reservas de áreas comuns, tesouraria, gestão documental, enquetes/votações, gestão de encomendas, cadastro de veículos e pets, contatos de emergência e painel administrativo completo.
+1.4 Público-Alvo
+Síndicos e subsíndicos que gerenciam o condomínio
+Condôminos e moradores que utilizam os serviços do condomínio
+Administradores do sistema (equipe técnica)
+2. Perfis de Usuário e Permissões
+2.1 Dados Cadastrais do Usuário
+Cada usuário do sistema deverá possuir os seguintes atributos em seu perfil:
+Campo
+Tipo
+Obrigatório
+Descrição
+Nome
+Texto
+Sim
+Primeiro nome do usuário
+Sobrenome
+Texto
+Sim
+Sobrenome completo
+E-mail
+E-mail
+Sim
+Endereço de e-mail único para login
+Telefone
+Texto
+Sim
+Número com DDD para notificações
+CPF
+Texto
+Sim
+Documento de identificação fiscal
+Foto de Perfil
+Imagem
+Não
+Avatar do usuário (JPG/PNG, máx. 5MB)
+Bloco
+Seleção
+Sim
+Bloco/torre do condomínio
+Apartamento
+Texto
+Sim
+Número da unidade
+Tipo de Usuário
+Seleção
+Sim
+Administrador / Síndico / Condômino
+Status
+Seleção
+Sim
+Ativo / Inativo / Pendente
+2.2 Matriz de Permissões
+A tabela abaixo detalha as permissões de cada perfil de usuário no sistema:
+Funcionalidade
+Administrador
+Síndico
+Condômino
+Gerenciar usuários (CRUD)
+✓
+✗
+✗
+Configurar sistema e parâmetros
+✓
+✗
+✗
+Visualizar logs e auditoria
+✓
+✗
+✗
+Gerenciar blocos e unidades
+✓
+✗
+✗
+Publicar no mural de avisos
+✓
+✓
+✗
+Comentar no mural de avisos
+✓
+✓
+✓
+Responder chamados
+✓
+✓
+✗
+Abrir chamados
+✓
+✓
+✓
+Gerenciar tesouraria
+✓
+✓
+✗
+Visualizar relatórios financeiros
+✓
+✓
+✓
+Criar reuniões/eventos
+✓
+✓
+✗
+Gerenciar áreas de lazer
+✓
+✓
+✗
+Reservar áreas de lazer
+✓
+✓
+✓
+Criar enquetes/votações
+✓
+✓
+✗
+Votar em enquetes
+✓
+✓
+✓
+Registrar encomendas
+✓
+✓
+✗
+Visualizar encomendas próprias
+✓
+✓
+✓
+Upload de documentos oficiais
+✓
+✓
+✗
+Download de documentos
+✓
+✓
+✓
+Editar próprio perfil
+✓
+✓
+✓
+2.3 Detalhamento dos Perfis
+Administrador (ADM)
+O administrador é o superusuário do sistema, com acesso irrestrito a todas as funcionalidades. É responsável pela configuração inicial do condomínio, cadastro de blocos e unidades, e gerenciamento de todos os usuários. Possui acesso ao painel de auditoria e logs do sistema, podendo visualizar todas as ações realizadas por qualquer usuário.
+Síndico
+O síndico herda todas as permissões do condômino e adicionalmente pode gerenciar o mural de avisos, responder chamados, administrar a tesouraria, criar eventos e reuniões, gerenciar reservas de áreas de lazer e criar enquetes. Pode designar um subsíndico com permissões equivalentes.
+Condômino
+O condômino é o morador regular do condomínio. Pode visualizar o mural, comentar em avisos, abrir chamados ao síndico, reservar áreas de lazer conforme disponibilidade, votar em enquetes, visualizar relatórios financeiros e acessar documentos oficiais do condomínio.
+3. Módulos Funcionais do Sistema
+3.1 Mural de Avisos
+O mural de avisos é o canal central de comunicação do condomínio, funcionando como um feed social onde o síndico e administradores publicam informações relevantes e os condôminos podem interagir.
+Funcionalidades
+Criação de postagens com título, corpo de texto rico (formatado), imagens e anexos
+Categorização por tipo: Aviso Geral, Manutenção, Segurança, Eventos, Obras, Regulamento
+Sistema de comentários em cada postagem (todos os usuários podem comentar)
+Fixação de avisos importantes no topo do mural
+Notificação push e por e-mail para novos avisos urgentes
+Filtros por categoria, data e autor
+Histórico completo com busca textual
+Regras de Negócio
+Somente Síndico e ADM podem criar, editar e excluir postagens
+Condôminos podem comentar, mas não editar ou excluir comentários de terceiros
+O autor de um comentário pode excluir ou editar o próprio comentário em até 24h
+Avisos podem ter data de expiração automática
+Síndico pode moderar comentários inapropriados
+3.2 Sistema de Chamados
+O sistema de chamados permite que condôminos reportem problemas, façam solicitações e se comuniquem diretamente com o síndico de forma organizada e rastreável.
+Campos do Chamado
+Campo
+Tipo
+Descrição
+Título
+Texto
+Resumo objetivo do chamado
+Descrição
+Texto Rico
+Detalhamento do problema ou solicitação
+Categoria
+Seleção
+Manutenção, Barulho, Segurança, Sugestão, Financeiro, Outros
+Prioridade
+Seleção
+Baixa, Média, Alta, Urgente
+Anexos
+Arquivos
+Fotos, vídeos ou documentos (máx. 10MB cada)
+Status
+Automático
+Aberto, Em Andamento, Aguardando, Resolvido, Fechado
+Protocolo
+Automático
+Número único gerado pelo sistema (ex.: CHM-2026-0001)
+Fluxo do Chamado
+Condômino abre o chamado com título, descrição, categoria e prioridade
+Sistema gera protocolo automático e notifica o síndico
+Síndico visualiza, analisa e altera status para “Em Andamento”
+Síndico pode responder com atualizações, solicitar mais informações ou delegar
+Ao finalizar, síndico marca como “Resolvido”
+Condômino confirma a resolução ou reabre o chamado
+Chamado é automaticamente fechado após 7 dias sem interação
+Regras de Negócio
+Cada chamado gera notificação por e-mail e push ao síndico
+Histórico completo de conversas dentro de cada chamado
+Dashboard com métricas: tempo médio de resolução, chamados por categoria, taxa de resolução
+Condômino pode avaliar o atendimento com nota de 1 a 5 estrelas
+Síndico pode exportar relatórios de chamados em PDF
+3.3 Agenda do Condomínio
+A agenda centraliza todas as reuniões condominiais, eventos e datas importantes, funcionando como um calendário compartilhado com todos os moradores.
+Tipos de Eventos
+Assembleia Geral Ordinária (AGO)
+Assembleia Geral Extraordinária (AGE)
+Reunião de Conselho
+Manutenção Programada
+Eventos Sociais (festas, confraternizações)
+Dedetização e Limpeza de Caixa d’Água
+Datas de vencimento de boletos/taxas
+Funcionalidades
+Visualização em calendário mensal, semanal e lista
+Criação de eventos com título, descrição, data/hora, local e pauta
+Confirmação de presença (RSVP) para reuniões e assembleias
+Lembretes automáticos via push e e-mail (48h e 2h antes)
+Anexo de documentos (pautas, atas anteriores) ao evento
+Filtro por tipo de evento
+Exportação de calendário para Google Calendar / iCal
+3.4 Reserva de Áreas de Lazer
+Módulo para gerenciar a reserva de espaços compartilhados do condomínio, garantindo organização, equidade e controle de uso.
+Áreas Configuráveis
+Salão de Festas
+Churrasqueira / Espaço Gourmet
+Piscina
+Quadra Poliesportiva
+Playground
+Sala de Jogos / Academia
+Espaço Coworking
+Parâmetros por Área (configurável pelo Síndico/ADM)
+Parâmetro
+Descrição
+Exemplo
+Horário de funcionamento
+Início e fim de disponibilidade
+08:00 às 22:00
+Duração mínima/máxima
+Tempo de reserva permitido
+2h mínimo / 6h máximo
+Antecedência mínima
+Prazo mínimo para agendar
+24 horas
+Antecedência máxima
+Prazo máximo para agendar
+30 dias
+Capacidade
+Número máximo de pessoas
+50 pessoas
+Taxa de uso
+Valor cobrado pela reserva
+R$ 150,00
+Cancelamento
+Prazo para cancelar sem multa
+48h antes
+Reservas simultâneas
+Limite por unidade por mês
+2 reservas/mês
+Fluxo de Reserva
+Condômino seleciona área e visualiza calendário de disponibilidade
+Seleciona data e horário desejados
+Sistema verifica disponibilidade e regras (inadimplência, limite mensal)
+Reserva fica com status “Pendente” aguardando aprovação do síndico (se configurável)
+Síndico aprova ou rejeita (com justificativa)
+Condômino recebe confirmação e lembrete automático
+3.5 Tesouraria e Gestão Financeira
+Módulo crítico de transparência financeira que permite ao síndico registrar todas as receitas e despesas do condomínio, gerando relatórios acessíveis a todos os condôminos.
+Categorias de Receitas
+Taxas condominiais ordinárias
+Taxas extraordinárias
+Multas por infração
+Receitas com aluguel de espaços
+Rendimentos de aplicações financeiras
+Fundo de reserva
+Categorias de Despesas
+Funcionários (salários, encargos, benefícios)
+Manutenção predial (elevadores, bombas, eltrica, hidráulica)
+Serviços (limpeza, jardinagem, segurança)
+Consumo (água, energia, gás)
+Administrativo (material de escritório, software, contabilidade)
+Seguros
+Obras e reformas
+Despesas judiciais
+Funcionalidades do Módulo
+Registro detalhado de cada lançamento (data, valor, categoria, descrição, comprovante)
+Upload de notas fiscais e comprovantes em PDF/imagem
+Dashboard financeiro com gráficos de receitas vs despesas
+Balanço mensal automático com comparação ao mês anterior
+Relatório anual para prestação de contas em assembleia
+Exportação de relatórios em PDF e Excel
+Controle de inadimplência por unidade
+Alertas de orçamento quando despesas excedem provisões
+Histórico financeiro completo com filtros por período e categoria
+Visão do Condômino
+O condômino tem acesso de leitura ao módulo financeiro, podendo visualizar o demonstrativo mensal, gráficos de distribuição de gastos por categoria e o histórico de receitas e despesas. Não possui acesso a dados individuais de inadimplência de outros moradores.
+3.6 Repositório de Documentos
+Espaço centralizado para armazenamento e acesso a todos os documentos oficiais do condomínio, garantindo que todos os moradores tenham acesso fácil à documentação vigente.
+Tipos de Documentos
+Convenção do Condomínio
+Regimento Interno
+Atas de Assembleias
+Balanços Financeiros
+Apólices de Seguro
+Contratos de prestadores de serviço
+Laudos técnicos (AVCB, para-raios, elevadores)
+Editais e convocações
+Funcionalidades
+Upload de documentos com metadados (título, categoria, data, descrição)
+Versionamento automático (mantém versões anteriores)
+Busca textual em documentos
+Download individual e em lote
+Controle de acesso por tipo de usuário
+3.7 Enquetes e Votações
+Módulo para facilitar a tomada de decisões coletivas do condomínio, permitindo votações seguras e transparentes sem necessidade de presença física.
+Funcionalidades
+Criação de enquetes com múltiplas opções ou sim/não
+Definição de prazo para votação
+Voto único por unidade (evita duplicidade)
+Votação anônima ou identificada (configurável)
+Exibição de resultados em tempo real ou após encerramento
+Quórum mínimo configurável
+Notificação automática para participar da votação
+Relatório final com resultado detalhado exportável em PDF
+3.8 Gestão de Encomendas
+Controle de recebimento e retirada de encomendas e correspondências na portaria do condomínio, garantindo rastreabilidade e segurança.
+Funcionalidades
+Registro de encomendas pelo síndico/porteiro com foto, descrição e destinatário
+Notificação automática ao condômino via push e e-mail
+Confirmação de retirada com data, hora e assinatura digital
+Histórico de encomendas por unidade
+Alertas para encomendas não retiradas após 72h
+3.9 Cadastro de Veículos e Pets
+Módulo complementar para controle de veículos e animais de estimação no condomínio, facilitando a gestão de vagas e o cumprimento do regimento interno.
+Cadastro de Veículos
+Placa, modelo, cor, foto e vaga associada
+Controle de vagas por unidade
+Identificação rápida em caso de emergência (ex.: farol aceso, alarme)
+Cadastro de Pets
+Nome, raça, porte, foto e carteira de vacinação
+Registro de vacinas com alertas de vencimento
+Conformidade com regras do condomínio
+3.10 Contatos de Emergência e Serviços
+Lista centralizada de contatos essenciais do condomínio, facilmente acessível por todos os moradores.
+Contatos Pré-Cadastrados
+Síndico / Subsíndico
+Administradora do condomínio
+Portaria (ramais)
+SAMU (192), Bombeiros (193), Polícia (190)
+Concessionárias (água, luz, gás)
+Prestadores de serviço (encanador, eletricista, chaveiro)
+4. Sistema de Notificações
+O sistema de notificações é transversal a todos os módulos e garante que os usuários sejam informados de eventos relevantes em tempo hábil.
+Canais de Notificação
+Notificações push (navegador e app)
+E-mail
+Central de notificações in-app (sino com badge de contagem)
+Eventos Notificáveis
+Evento
+Destinatário
+Canal
+Novo aviso no mural
+Todos os condôminos
+Push + E-mail
+Novo chamado aberto
+Síndico
+Push + E-mail
+Atualização de chamado
+Autor do chamado
+Push + E-mail
+Reserva aprovada/rejeitada
+Solicitante
+Push + E-mail
+Nova enquete disponível
+Todos os condôminos
+Push + E-mail
+Encomenda recebida
+Destinatário
+Push + E-mail
+Reunião agendada (48h antes)
+Convidados
+Push + E-mail
+Relatório financeiro publicado
+Todos os condôminos
+E-mail
+Vacina de pet vencendo
+Dono do pet
+Push
+Preferências do Usuário
+Cada usuário pode configurar individualmente quais notificações deseja receber e por qual canal, exceto notificações críticas de segurança que são obrigatórias.
+5. Requisitos Não Funcionais
+5.1 Desempenho
+Tempo de carregamento inicial inferior a 3 segundos em conexão 4G
+Tempo de resposta de API inferior a 500ms para 95% das requisições
+Suporte a até 500 usuários simultâneos sem degradação
+5.2 Segurança
+Autenticação via JWT com refresh tokens
+Criptografia TLS 1.3 em todas as comunicações
+Senhas armazenadas com bcrypt (fator de custo 12+)
+Proteção contra CSRF, XSS e SQL Injection
+Rate limiting para prevenir força bruta
+Logs de auditoria para ações críticas (login, alterações financeiras)
+Conformidade com LGPD (Lei Geral de Proteção de Dados)
+5.3 Usabilidade
+Design responsivo (mobile-first) compatível com Chrome, Firefox, Safari e Edge
+Interface intuitiva com no máximo 3 cliques para qualquer funcionalidade
+Suporte a modo escuro (dark mode)
+Acessibilidade WCAG 2.1 nível AA
+Interface em Português Brasileiro (pt-BR)
+5.4 Disponibilidade e Escalabilidade
+SLA de 99,5% de disponibilidade
+Backup automático diário com retenção de 30 dias
+Recuperação de desastre com RTO de 4 horas e RPO de 1 hora
+Arquitetura preparada para escalar horizontalmente
+6. Arquitetura Técnica Sugerida
+6.1 Stack Tecnológico
+Camada
+Tecnologia
+Justificativa
+Frontend
+React.js + TypeScript
+Ecossistema robusto, tipagem forte, componentização
+UI Framework
+Tailwind CSS + Shadcn/UI
+Design moderno, customizável e acessível
+Backend
+Laravel 11 (PHP 8.3)
+Framework maduro, Eloquent ORM, filas e eventos
+API
+REST + Laravel Sanctum
+Autenticação SPA segura e simples
+Banco de Dados
+PostgreSQL 16
+Robustez, JSON nativo, full-text search
+Cache
+Redis
+Sessões, filas e cache de consultas
+Storage
+AWS S3 / MinIO
+Armazenamento de arquivos e imagens escalável
+Notificações
+Firebase Cloud Messaging
+Push notifications cross-platform
+E-mail
+Amazon SES / Mailgun
+Envio transacional de e-mails
+CI/CD
+GitHub Actions + Docker
+Automação de deploy e testes
+Hospedagem
+AWS / DigitalOcean
+Infraestrutura escalável e confiável
+6.2 Arquitetura de Alto Nível
+O sistema seguirá uma arquitetura de aplicação web SPA (Single Page Application) com backend API RESTful. O frontend React se comunicará com o backend Laravel via endpoints REST protegidos por Sanctum. O banco PostgreSQL armazenará dados relacionais, enquanto o Redis será utilizado para cache, sessões e gerenciamento de filas. O armazenamento de arquivos (fotos, documentos, comprovantes) será delegado ao S3/MinIO.
+6.3 Estrutura do Banco de Dados (Principais Entidades)
+Entidade
+Campos Principais
+Relacionamentos
+users
+id, nome, sobrenome, email, cpf, foto, bloco, apto, tipo, status
+Has many: chamados, reservas, comentarios, votos
+avisos
+id, titulo, corpo, categoria, fixado, expira_em, user_id
+Belongs to: user | Has many: comentarios
+chamados
+id, protocolo, titulo, descricao, categoria, prioridade, status
+Belongs to: user | Has many: respostas, anexos
+eventos
+id, titulo, descricao, tipo, data_inicio, data_fim, local
+Has many: confirmacoes | Belongs to: user
+areas_lazer
+id, nome, descricao, horarios, capacidade, taxa, foto
+Has many: reservas
+reservas
+id, area_id, user_id, data, hora_inicio, hora_fim, status
+Belongs to: user, area_lazer
+lancamentos
+id, tipo, categoria, valor, descricao, data, comprovante
+Belongs to: user (criador)
+enquetes
+id, titulo, descricao, tipo, anonima, prazo, quorum
+Has many: opcoes, votos | Belongs to: user
+encomendas
+id, descricao, foto, user_id, status, retirada_em
+Belongs to: user
+veiculos
+id, placa, modelo, cor, foto, vaga, user_id
+Belongs to: user
+pets
+id, nome, raca, porte, foto, vacinas, user_id
+Belongs to: user
+documentos
+id, titulo, categoria, arquivo, versao, user_id
+Belongs to: user
+7. Diretrizes de Layout e Experiência do Usuário
+7.1 Identidade Visual
+O Vista dos Lírios Management adota uma identidade visual sofisticada e acolhedora, inspirada em tons de verde e dourado, remetendo à natureza e à convivência harmônica em comunidade.
+Paleta de Cores
+Cor
+Hex
+Uso
+Verde Escuro (Primária)
+#1B4332
+Header, sidebar, botões primários
+Verde Médio
+#2D6A4F
+Destaque, links, ícones ativos
+Verde Claro
+#40916C
+Badges, tags, indicadores
+Verde Pastel
+#D8F3DC
+Fundos de cards, alertas de sucesso
+Dourado
+#B68D40
+Acentos, destaques premium
+Cinza Escuro
+#1A1A2E
+Texto principal, dark mode
+Branco
+#FAFAFA
+Fundo principal
+Tipografia
+Títulos: Inter ou Poppins (Bold/SemiBold)
+Corpo: Inter ou Nunito Sans (Regular/Medium)
+Monospace (códigos/protocolos): JetBrains Mono
+7.2 Estrutura de Navegação
+A interface utiliza um layout com sidebar colapsável à esquerda e área de conteúdo principal à direita. O menu lateral apresenta os módulos com ícones intuitivos e o conteúdo se adapta ao contexto do usuário logado.
+Menu do Condômino
+Dashboard (visão geral)
+Mural de Avisos
+Meus Chamados
+Agenda
+Reservas
+Financeiro (visualização)
+Enquetes
+Minhas Encomendas
+Documentos
+Contatos
+Meu Perfil
+Menu Adicional do Síndico
+Painel do Síndico (dashboard com métricas)
+Gerenciar Chamados
+Gerenciar Mural
+Gerenciar Reservas
+Tesouraria
+Criar Enquetes
+Registrar Encomendas
+Upload de Documentos
+Menu Adicional do ADM
+Painel Administrativo
+Gerenciar Usuários
+Configurar Condomínio (blocos, unidades, áreas de lazer)
+Logs e Auditoria
+Configurações do Sistema
+7.3 Componentes de Interface
+O sistema utilizará componentes padronizados para garantir consistência visual: cards com sombras suaves e bordas arredondadas para conteúdo principal, modais para confirmações e ações rápidas, toasts para feedback de ações, badges coloridos para status, tabelas com paginação e busca, gráficos interativos para dados financeiros, e skeleton loaders para estados de carregamento.
+8. Roadmap de Desenvolvimento
+Fase 1 — MVP (Semanas 1–8)
+Autenticação e cadastro de usuários
+Perfis com foto, bloco e apartamento
+Mural de avisos com comentários
+Sistema de chamados completo
+Agenda básica
+Fase 2 — Core Features (Semanas 9–14)
+Reserva de áreas de lazer
+Tesouraria com dashboard financeiro
+Repositório de documentos
+Sistema de notificações push e e-mail
+Fase 3 — Features Avançadas (Semanas 15–20)
+Enquetes e votações
+Gestão de encomendas
+Cadastro de veículos e pets
+Relatórios avançados com exportação PDF/Excel
+Modo escuro
+Fase 4 — Otimização e Escala (Semanas 21–24)
+App mobile (PWA ou React Native)
+Integração com gateways de pagamento (Pix, boleto)
+Painel de analytics para o síndico
+API pública para integrações
+Testes de carga e otimização de performance
+9. Glossário
+Termo
+Definição
+Síndico
+Responsável legal pela administração do condomínio
+Condômino
+Proprietário ou morador de uma unidade do condomínio
+AGO
+Assembleia Geral Ordinária — reunião anual obrigatória
+AGE
+Assembleia Geral Extraordinária — reunião convocada para assuntos específicos
+LGPD
+Lei Geral de Proteção de Dados (Lei 13.709/2018)
+SPA
+Single Page Application — aplicativo de página única
+JWT
+JSON Web Token — padrão para autenticação
+SLA
+Service Level Agreement — acordo de nível de serviço
+RTO
+Recovery Time Objective — tempo máximo de recuperação
+RPO
+Recovery Point Objective — ponto máximo de perda de dados
+PWA
+Progressive Web App — aplicativo web progressível
+RSVP
+Répondez s’il vous plaît — confirmação de presença
+Vista dos Lírios Management — Documento Confidencial
+© 2026 — Todos os direitos reservados
