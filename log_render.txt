@@ -1,50 +1,50 @@
-2026-04-05T18:00:27.480896612Z 2026-04-05 18:00:27,479 INFO spawned: 'php-fpm' with pid 45
-2026-04-05T18:00:27.974543696Z [05-Apr-2026 18:00:27] NOTICE: fpm is running, pid 45
-2026-04-05T18:00:27.975865056Z [05-Apr-2026 18:00:27] NOTICE: ready to handle connections
-2026-04-05T18:00:28.977122326Z 2026-04-05 18:00:28,976 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
-2026-04-05T18:00:28.977293899Z 2026-04-05 18:00:28,977 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
-2026-04-05T18:00:29.865889675Z 127.0.0.1 -  05/Apr/2026:18:00:28 +0000 "HEAD /index.php" 200
-2026-04-05T18:00:32.716282333Z ==> Detected new open ports HTTP:8080, TCP:9000
-2026-04-05T18:01:03.408117756Z ==> New primary port detected: 8080. Restarting deploy to update network configuration...
-2026-04-05T18:01:03.493907284Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-04-05T18:02:19.714527066Z ==> Rodando migrations...
-2026-04-05T18:02:21.383324985Z ==> Detected new open ports HTTP:8080, TCP:9000
-2026-04-05T18:02:22.336097472Z 
-2026-04-05T18:02:22.336124442Z    INFO  Nothing to migrate.  
-2026-04-05T18:02:22.336128313Z 
-2026-04-05T18:02:22.378479857Z ==> Rodando seed (apenas se banco vazio)...
-2026-04-05T18:02:23.388564922Z 
-2026-04-05T18:02:23.388596623Z    INFO  Seeding database.  
-2026-04-05T18:02:23.388600133Z 
-2026-04-05T18:02:24.274228425Z ==> Limpando cache...
-2026-04-05T18:02:25.288058378Z 
-2026-04-05T18:02:25.288080209Z    INFO  Configuration cached successfully.  
-2026-04-05T18:02:25.288083279Z 
-2026-04-05T18:02:26.487647702Z 
-2026-04-05T18:02:26.487672093Z    INFO  Routes cached successfully.  
-2026-04-05T18:02:26.487676723Z 
-2026-04-05T18:02:27.814540035Z 
-2026-04-05T18:02:27.815926451Z 
-2026-04-05T18:02:27.815946711Z    INFO  Blade templates cached successfully.  
-2026-04-05T18:02:27.815949811Z 
-2026-04-05T18:02:27.885152165Z ==> Storage link...
-2026-04-05T18:02:28.987227567Z 
-2026-04-05T18:02:28.987245928Z    INFO  The [public/storage] link has been connected to [storagepublic].  
-2026-04-05T18:02:28.987249198Z 
-2026-04-05T18:02:28.99615353Z ==> Iniciando serviços...
-2026-04-05T18:02:30.186509143Z 2026-04-05 18:02:30,186 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
-2026-04-05T18:02:30.188985688Z 2026-04-05 18:02:30,188 INFO supervisord started with pid 1
-2026-04-05T18:02:31.192001188Z 2026-04-05 18:02:31,191 INFO spawned: 'nginx' with pid 43
-2026-04-05T18:02:31.194051022Z 2026-04-05 18:02:31,193 INFO spawned: 'php-fpm' with pid 44
-2026-04-05T18:02:31.593300707Z [05-Apr-2026 18:02:31] NOTICE: fpm is running, pid 44
-2026-04-05T18:02:31.677706887Z [05-Apr-2026 18:02:31] NOTICE: ready to handle connections
-2026-04-05T18:02:32.766228566Z 2026-04-05 18:02:32,766 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
-2026-04-05T18:02:32.7663698Z 2026-04-05 18:02:32,766 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
-2026-04-05T18:02:33.882030146Z 127.0.0.1 -  05/Apr/2026:18:02:32 +0000 "HEAD /index.php" 200
-2026-04-05T18:02:39.881941553Z ==> Your service is live 🎉
-2026-04-05T18:02:39.958340178Z ==> 
-2026-04-05T18:02:39.961113831Z ==> ///////////////////////////////////////////////////////////
-2026-04-05T18:02:39.963457766Z ==> 
-2026-04-05T18:02:39.966226159Z ==> Available at your primary URL https://vista-dos-lirios-management.onrender.com
-2026-04-05T18:02:39.969159195Z ==> 
-2026-04-05T18:02:39.971865147Z ==> ///////////////////////////////////////////////////////////
+2026-04-05T18:09:08.920165628Z #22 DONE 1.8s
+2026-04-05T18:09:09.07066442Z 
+2026-04-05T18:09:09.070704783Z #23 exporting cache to client directory
+2026-04-05T18:09:09.070714894Z #23 preparing build cache for export
+2026-04-05T18:09:09.461567453Z #23 writing cache image manifest sha256:c7273788ad3be79a764fe268b22fbc3f09f990d53d2484f3807bd4b4903da8dd done
+2026-04-05T18:09:09.461585914Z #23 DONE 0.5s
+2026-04-05T18:09:11.39947337Z Pushing image to registry...
+2026-04-05T18:09:12.563710392Z Upload succeeded
+2026-04-05T18:09:16.104887284Z ==> Deploying...
+2026-04-05T18:09:16.217776869Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-04-05T18:09:28.558703459Z ==> Rodando migrations...
+2026-04-05T18:09:31.263088454Z 
+2026-04-05T18:09:31.263110494Z    INFO  Nothing to migrate.  
+2026-04-05T18:09:31.263114054Z 
+2026-04-05T18:09:31.308189698Z ==> Rodando seed (apenas se banco vazio)...
+2026-04-05T18:09:32.418421099Z 
+2026-04-05T18:09:32.41844761Z    INFO  Seeding database.  
+2026-04-05T18:09:32.41845169Z 
+2026-04-05T18:09:33.32371748Z ==> Limpando cache...
+2026-04-05T18:09:34.610917813Z 
+2026-04-05T18:09:34.610940393Z    INFO  Configuration cached successfully.  
+2026-04-05T18:09:34.610943373Z 
+2026-04-05T18:09:35.813369653Z 
+2026-04-05T18:09:35.813395763Z    INFO  Routes cached successfully.  
+2026-04-05T18:09:35.813400353Z 
+2026-04-05T18:09:37.705867773Z 
+2026-04-05T18:09:37.706660935Z 
+2026-04-05T18:09:37.706678575Z    INFO  Blade templates cached successfully.  
+2026-04-05T18:09:37.706681885Z 
+2026-04-05T18:09:37.722050291Z ==> Storage link...
+2026-04-05T18:09:38.900822517Z 
+2026-04-05T18:09:38.900850757Z    INFO  The [public/storage] link has been connected to [storagepublic].  
+2026-04-05T18:09:38.900855037Z 
+2026-04-05T18:09:38.910273762Z ==> Iniciando serviços...
+2026-04-05T18:09:40.008286586Z 2026-04-05 18:09:40,008 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2026-04-05T18:09:40.011117299Z 2026-04-05 18:09:40,011 INFO supervisord started with pid 1
+2026-04-05T18:09:41.014939514Z 2026-04-05 18:09:41,013 INFO spawned: 'nginx' with pid 44
+2026-04-05T18:09:41.016266015Z 2026-04-05 18:09:41,016 INFO spawned: 'php-fpm' with pid 45
+2026-04-05T18:09:41.612231219Z [05-Apr-2026 18:09:41] NOTICE: fpm is running, pid 45
+2026-04-05T18:09:41.613509878Z [05-Apr-2026 18:09:41] NOTICE: ready to handle connections
+2026-04-05T18:09:42.614015922Z 2026-04-05 18:09:42,613 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-04-05T18:09:42.614046623Z 2026-04-05 18:09:42,613 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-04-05T18:09:43.515550465Z 127.0.0.1 -  05/Apr/2026:18:09:42 +0000 "HEAD /index.php" 200
+2026-04-05T18:09:47.415488347Z ==> Your service is live 🎉
+2026-04-05T18:09:47.554252567Z ==> 
+2026-04-05T18:09:47.55738843Z ==> ///////////////////////////////////////////////////////////
+2026-04-05T18:09:47.560968293Z ==> 
+2026-04-05T18:09:47.565148281Z ==> Available at your primary URL https://vista-dos-lirios-management.onrender.com
+2026-04-05T18:09:47.572460271Z ==> 
+2026-04-05T18:09:47.574949869Z ==> ///////////////////////////////////////////////////////////
