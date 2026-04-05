@@ -4,7 +4,8 @@
       "Bash(cd:*)",
       "Bash(node:*)",
       "Bash(php:*)",
-      "Bash(whoami:*)"
+      "Bash(whoami:*)",
+      "Bash(PHPRC=\"C:\\\\Users\\\\hscjr\\\\php-custom.ini\" php artisan config:publish cors)"
     ]
   }
 }

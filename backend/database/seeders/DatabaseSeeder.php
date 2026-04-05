@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Só roda se banco estiver vazio
+        if (User::count() > 0) return;
+
         // Admin
         $admin = User::create([
             'name'        => 'Carlos',
