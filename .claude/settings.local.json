@@ -5,7 +5,8 @@
       "Bash(node:*)",
       "Bash(php:*)",
       "Bash(whoami:*)",
-      "Bash(PHPRC=\"C:\\\\Users\\\\hscjr\\\\php-custom.ini\" php artisan config:publish cors)"
+      "Bash(PHPRC=\"C:\\\\Users\\\\hscjr\\\\php-custom.ini\" php artisan config:publish cors)",
+      "Bash(grep -n \"exit\\\\|Exit\\\\|Deploy\\\\|deploy\\\\|==>\\\\\\\\|start\\\\|Start\\\\|running\\\\|Running\\\\|migrate\\\\|seed\\\\|App running\\\\|Listening\\\\|listen\" \"C:\\\\Users\\\\hscjr\\\\Documents\\\\vistadoslirios\\\\log_render.txt\")"
     ]
   }
 }
